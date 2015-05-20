@@ -1,1 +1,1 @@
-# Bit-Kids
+# Bit-Kids-Programmeerlessen

@@ -1,0 +1,232 @@
+/*************** ALGEMEEN *************/
+
+    @font-face {
+        font-family: 'glyphs';
+        src: url('../fonts/glyphs.eot');
+        src: url('../fonts/glyphs.ttf') format('truetype'),
+            url('../fonts/glyphs.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/glyphs.woff') format('woff'),
+             url('../fonts/glyphs.svg#glyphterregular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+       
+    html {
+        font-size: 100%;
+        height: 100%;
+        width: 100%;
+    }
+    
+    body {  
+        height: 100%;
+        position: relative;
+        font-family: "Roboto";
+        font-weight: 400;
+        font-size: 1.2em;
+        line-height: 1.4em;
+        background: #c3dcdd;
+        color: #000;
+        margin: 0;
+    }
+    
+        
+    a {
+        color: #000;
+    }
+    
+    a:hover {
+        color: #ed1c24;
+    }
+        
+    #pagewrap {
+        margin: 0 auto 100px auto;
+        border-bottom-left-radius: 120px;
+        width: 1366px;
+        padding: 160px 40px;
+        background: #fff;
+        overflow: auto;
+    }
+       
+    * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;  
+    }
+    
+    
+    
+/********* FRAMEWORK **********/
+
+    #topbar {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 100px;
+        top: 0px;
+        box-shadow: 0 6px 8px rgba(0,0,0,0.5);
+    }
+    
+        .page-template-home-template-php #topbar {
+            top: 20px;
+        }
+    
+    #branding {
+        position: absolute;
+        left: 20px;
+        top: -10px;
+    }
+    
+    #top-container {
+        width: 100%;
+        height: 55px;
+        background: #c3dcdd;
+    }
+
+        #top {
+            position: relative;
+            width: 1366px;
+            margin: 0 auto;
+            overflow: visible;
+            padding-left: 200px;
+        }
+        
+            #top h1 {
+                float: left;
+                margin: 0;
+                font-family: 'Passion One';
+                font-weight: 700;
+                color: #000;
+                font-size: 1.5em;
+                line-height: 0.8em;
+                padding: 20px 0 0 0;
+            }
+            
+            #top #menu {
+                float: right;
+                margin-top: 14px;
+            }
+        
+    #bottom-container {
+        width: 100%;
+        height: 45px;
+        background: #000;
+    }
+    
+        #bottom {
+            width: 1366px;
+            margin: 0 auto;
+            padding-left: 200px;
+            clear: both;
+        }
+        
+            #subtitel {
+                float: left;
+                position: relative;
+            }
+            
+                #subtitel h3 {
+                    font-family: 'Passion One';
+                    font-weight: 400;
+                    font-size: 1.1em;
+                    color: #fff;
+                    margin: 0;
+                    padding: 10px 0 0 0;
+                }
+            
+            #social-media-container {
+                float: right;
+                margin-top: 8px;
+            }
+            
+                #social-media {         
+                    text-align: right;
+                    color: #fff;
+                    font-size: 0.8em;
+                }
+                
+                    #social-media a {
+                        color: #fff;
+                        font-family: "glyphs";
+                        font-size: 1.3em;
+                        text-decoration: none;
+                        position: relative;
+                        top: 4px;
+                        padding: 0 4px;
+                    }
+                      
+                      #social-media a:hover {
+                          color: #ed1c24;
+                      }
+                      
+                      
+                      
+                      
+/********* FILTER **********/  
+                 
+    
+    #filter {
+        margin: 20px 0;
+        padding: 20px;
+        background: #eee;
+    }               
+                 
+                  
+                      
+
+
+/********* CONTENT **********/
+
+    table {
+       width: 100%; 
+    }
+    
+        tr.headings td {
+            background: #000;
+            color: #c3dcdd;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+    
+        tr.row-1 {
+            background: #c3dcdd;
+        }
+        
+        tr.row-2 {
+            background: #eee;
+        }
+        
+            td {
+                padding: 10px;
+                border-right: 5px solid #fff;
+                text-align: center;
+            }
+            
+            td.icon {
+                width: 60px;
+            }
+            
+            .leesmij {
+                font-size: 11px;
+            }
+            
+            td.align-left {
+                text-align: left;
+            }
+            
+                td.text a {
+                    text-decoration: none;
+                }
+                
+                
+                
+                
+/********* MEDIA **********/
+
+
+@media (max-width: 1366px) {
+    html { font-size: 100%; }
+    #pagewrap { width: 100%; }
+    #top, #bottom { width: 100%; }
+
+
+}

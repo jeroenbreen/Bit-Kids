@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Bit-Kids Programmeerlessen</title>
+
+        <!-- jQuery -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js'></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js'></script>
+        <link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/base/jquery-ui.css'>
+
+        <!-- Angular -->
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js' type='text/javascript'></script>
+        <script src='https://code.angularjs.org/1.2.16/angular-animate.min.js' type='text/javascript'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+        <script src='js/app.js' type='text/javascript'></script>
+        <script src='js/factory.js' type='text/javascript'></script>
+        <script src='js/filter.js' type='text/javascript'></script>
+        <script src='js/controllers/mainController.js' type='text/javascript'></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Passion+One:400,700,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Dosis:400,300,200,500,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body ng-app="bitkids" ng-controller="mainController">
+        <div id="topbar">
+            <div id="top-container">
+                <div id="top">
+                    <div id="branding">
+                        <a href="http://bit-kids.nl" target="_self"><img src="http://bit-kids.nl/wp-content/themes/bit-kids-theme/img/bit-kids-logo.png"></a>
+                    </div>
+                    <h1>{{shared.lessen.length}} / 320 Gratis Programmeerlessen voor het Basisonderwijs</h1>
+                    <div id="menu">
+                        <!-- menu -->
+                    </div>
+                </div>
+            </div>
+            <!-- end of top --->
+
+            <div id="bottom-container">
+
+                <div id="bottom">
+                    <div id="subtitel">
+                        Subtitel
+                    </div>
+                    <div id="social-media-container">
+                        <div id="social-media">
+                            MAIL naar <a href="mailto:we@bit-kids.nl" target="_self">m</a> of VOLG ons op <a href="https://twitter.com/Bit_Kids" target="_blank">t</a>!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of bottom --->
+        </div>
+        <!-- end of topbar --->
+
+        <div id="pagewrap">
+            <div id="filter">
+
+                <div id="project-filter">
+                    Filter:
+                    <select ng-model="filter.groep">
+                        <option ng-repeat="groep in groepen" value="{{groep}}">{{groep}}</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div id="content">
+                <table cellspacing="0" cellpadding="0">
+                    <tr class="headings">
+                        <td class="align-left">Lesnaam</td>
+                        <td class="align-left">Leesmij</td>
+                        <td class="align-left">Groep</td>
+                        <td class="align-left">Week</td>
+                        <td class="align-left">Niveau</td>
+                        <td>Computer</td>
+                        <td>Codestijl</td>
+                        <td>Taal</td>
+                        <td>Inloggen</td>
+                        <td>Internet</td>
+                        <td>Versie</td>
+                    </tr>
+                    <tr ng-repeat="les in lessen=(shared.lessen | lessenFilter:filter)" ng-class="{'row-1': $even, 'row-2': $odd}">
+                        <td class="align-left" title="Download het Bestand"><a href="{{les.link}}" target="_blank"><b>{{les.lescode}}</b></a></td>
+                        <td class="align-left leesmij" title="Gebruiksaanwijzingen voor dit Bestand"><a href="" target="_blank">LEESMIJ</a></td>
+                        <td class="align-left" title="Groep">{{les.groep}}</td>
+                        <td class="align-left" title="Weeknummer / Opvolgingsnummer">{{les.week}}</td>
+                        <td class="align-left"><img title="Moeilijkheidsgraad binnen het jaar" ng-repeat="i in getNumber(les.niveau) track by $index" src="img/niveau.png"></td>
+                        <td class="icon"><img title="Programmeren op de Computer" ng-if="les.plugged == 1" src="img/plugged.png"><img title="Programmeren zonder Computer" ng-if="les.plugged == 0" src="img/unplugged.png"></td>
+                        <td class="icon"><img title="Visueel Programmeren" ng-if="les.visueel == 1" src="img/visueel.png"><img title="Met Code Programmeren" ng-if="les.visueel == 0" src="img/unvisueel.png"></td>
+                        <td class="icon"><img title="Nederlandse Gebruiksomgeving van het Gebruikte Programma" ng-if="les.nederlands == 1" src="img/nl.png"><img title="Engelse Gebruiksomgeving van het Gebruikte Programma" ng-if="les.nederlands == 0" src="img/en.png"></td>
+                        <td class="icon"><img title="Inloggen" ng-if="les.inloggen == 1" src="img/locked.png"><img title="Niet Inloggen" ng-if="les.inloggen == 0" src="img/unlocked.png"></td>
+                        <td class="icon"><img title="Internet Nodig" ng-if="les.www == 1" src="img/www.png"><img title="Internet Niet Nodig" ng-if="les.www == 0" src="img/no-www.png"></td>
+                        <td class="icon" title="Versienummer van het Bestand">{{les.versie}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>
